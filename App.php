@@ -13,7 +13,7 @@ if (!isset($_GET['show']) && !isset($_GET['category'])) {
     $amount = 20;
     $category = "all";
     echo $amount . $category;
-} elseif (check_category($_GET['category'] ?? null, $categorys) || validate_show_is_number($_GET['show'] ?? null)) {
+} elseif (check_category($_GET['category'] ?? null, $categorys) && validate_show_is_number($_GET['show'] ?? null)) {
     $amount = $_GET['show'] ?? null;
     $category = $_GET['category'] ?? null;
     echo $amount . $category;
