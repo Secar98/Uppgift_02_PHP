@@ -14,17 +14,19 @@ $amount = isset($_GET['show']) ? $_GET['show'] : 20;
 $category = isset($_GET['category']) ? $_GET['category'] : "all";
 
 
-validate_is_between($amount) === 0 ? array_push($errorsArray, "Show must be a Number and between 1 - 20") : true;
+validate_is_between($amount) ? true : array_push($errorsArray, "Show must be a Number and between 1 - 20");
 check_category($category, $categorys) ? true : array_push($errorsArray, "Not valid category!");
 
 if ($errorsArray) {
     print_r($errorsArray);
     exit();
+} else {
+    echo "hehej";
 }
 
 function validate_is_between($value)
 {
-    $result = ($value >= 1 && $value <= 20) ? true : 0;
+    $result = ($value >= 1 && $value <= 20) ? true : false;
     return $result;
 }
 
