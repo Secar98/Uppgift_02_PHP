@@ -73,8 +73,8 @@ class API
     }
 }
 
-$amount = isset($_GET['show']) ? $_GET['show'] : 20;
-$category = isset($_GET['category']) ? $_GET['category'] : "all";
+$amount = isset($_GET['show']) ? htmlspecialchars($_GET['show']) : 20;
+$category = isset($_GET['category']) ? htmlspecialchars($_GET['category']) : "all";
 
 $api = new API();
 $api->main($amount, $category);
